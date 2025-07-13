@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+  labels:
+    app: nginx
+spec:
+    containers:
+    - name: firstevercontainer
+      image: nginx:latest
+      env:
+      - name: myname
+        value: arjun
+      - name: city
+        value: patiala
+    nodeSelector: 
+      nodetype: "production" 
+    
+    

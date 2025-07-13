@@ -1,0 +1,70 @@
+choco 
+
+
+choco install kubernetes-cli 
+
+
+choco install minikube
+
+minikube start --driver=docker
+
+
+
+kubectl get nodes 
+
+
+
+minikube stop
+
+minikube delete 
+ 
+minikube start --nodes 1 --drivr=docker
+
+
+kubectl apply -f deploy.yaml
+
+kubectl apply -f pods.yaml 
+
+kubectl get deployments
+
+kubectl get replicasets 
+
+kubetl get pods -w
+
+kubectl scale deployement <deployement name> 
+
+minikube image load logger 
+
+*******************************************************************
+
+Deployement YAML :
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-container
+          image: reactapp:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+
+
+*************************
+
+Ingress
+
+minikube addons enable ingress
