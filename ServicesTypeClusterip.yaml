@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicedeploy
+  labels:
+    type: nginxservice
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: 80 
+
+
+  

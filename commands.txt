@@ -68,3 +68,32 @@ spec:
 Ingress
 
 minikube addons enable ingress
+
+
+      sudo mv /etc/cni/net.d/100-crio-bridge.conf.mk_disabled /etc/cni/net.d/100-crio-bridge.conf 
+
+
+
+
+      kubectl create deployment firstdeploy --replicas=3 --image=nginx:latest 
+
+
+
+
+      __________________
+
+      Rollout status 
+
+kubectl get rs -o wide
+
+kubectl rollout status deployment apache-deployment 
+
+kubectl rollout history deployment apache-deployment
+
+
+
+Rolback to version 1 
+
+ kubectl rollout undo --to-revision=1 deployment apache-deployment 
+
+

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: apache-deployment
+  labels:
+    app: apache
+    label1: arjun
+    label2: magoo
+  annotations:
+    kubernetes.io/change-cause: "Version 2"
+
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: apache
+  minReadySeconds: 20
+  strategy:
+     type: Recreate
+    
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+      - name: arjunapache
+        image: docker9447/apache:v2
+        ports:
+        - containerPort: 80

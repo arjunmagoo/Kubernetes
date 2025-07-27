@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  labels:
+    app: apache
+
+  annotations:
+    kubernetes.io/change-cause: "Version 2"
+spec:
+  replicas: 3
+  selector:
+   matchLabels:
+     app: apache
+
+  minReadySeconds: 20
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+    type: RollingUpdate
+  
+  
+  template:
+      metadata:
+       labels:
+         app: apache 
+      spec:
+       containers:
+       - name: apache
+         image: docker9447/apache:v2
+         ports:
+         - containerPort: 80    
