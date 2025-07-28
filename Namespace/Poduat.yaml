@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: uatpod
+  namespace: uat
+  labels: 
+    env: uat
+spec:
+  containers:
+  - name: podcontaineruat
+    image: nginx:latest
+    ports:
+    - containerPort: 90

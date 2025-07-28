@@ -4,6 +4,7 @@ metadata:
   name: pod1
   labels:
     env: prod
+    app : nginx
 spec:
   containers:
   - name: firstsvccontainer
