@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: computeresourcepod
+  namespace: sit
+  labels: 
+    env: sit
+spec:
+  containers:
+  - name: computeresource-cont 
+    image: nginx:latest
+    ports:
+    - containerPort: 90
+    resources:
+      requests:
+        memory: 250Mi
+        cpu: 0.1
+      limits:
+        memory: 500Mi
+        cpu: 0.5 
