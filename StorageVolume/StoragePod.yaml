@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storagepod
+  namespace: sit
+  labels: 
+    env: sit
+    app: nginx
+spec:
+  containers:
+  - name: storagevolumecont
+    image: nginx:latest
+    volumeMounts:
+    - mountPath: /data
+      name: emptydirvolume
+  volumes:
+  - name: emptydirvolume
+    emptyDir: {} 
+
