@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostpathpod
+  namespace: sit
+  labels:
+    app: nginx
+    env: sit
+spec:
+    nodeSelector:
+      kubernetes.io/hostname: master
+    containers:
+    - name: hostpathcontainer
+      image: nginx:latest
+      volumeMounts:
+      - mountPath: /arjunnnmount
+        name: arjunhostpathmount
+    volumes:
+    - name: arjunhostpathmount
+      hostPath:
+        path: /tmp/arjunnnmount 
