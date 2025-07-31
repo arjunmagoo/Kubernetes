@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+  namespace: dev
+  labels:
+    env: prod
+spec:
+  containers:
+  - name: container1
+    image: nginx:latest
+    volumeMounts:
+    - name: volumemount
+      mountPath: /newvolume
+  nodeSelector:
+      kubernetes.io/hostname: master-m02
+  volumes:
+  - name: volumemount
+    emptyDir: {}
